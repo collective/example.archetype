@@ -1,0 +1,24 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:cmf="http://namespaces.zope.org/cmf"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    i18n_domain="example.archetype" >
+
+   <!-- This package is a Zope 2 product -->
+   <five:registerPackage package="." initialize=".initialize" />
+
+   <!-- File System Directory Views registration -->
+   <cmf:registerDirectory
+       name="instantmessage"
+       />
+
+  <genericsetup:registerProfile
+      name="default"
+      title="Example Archetype content (InstantMessage)"
+      directory="profiles/default"
+      description="Extension profile for Example AT - InstantMessage"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+</configure>
