@@ -1,4 +1,5 @@
 from base import InstantMessageTestCase
+from example.archetype.interfaces import IInstantMessage
 
 class TestProductInstall(InstantMessageTestCase):
 
@@ -17,13 +18,17 @@ class TestProductInstall(InstantMessageTestCase):
 
 class TestInstantiation(InstantMessageTestCase):
 
-    def testCreateInstantMessage(self):
+    def afterSetUp(self):
         # Adding an InstantMessage anywhere - can only be done by a Manager or Portal Owner
         self.setRoles(['Manager'])
         self.portal.invokeFactory('InstantMessage', 'im1')
+
+    def testCreateInstantMessage(self):
         self.failUnless('im1' in self.portal.objectIds())
-        #self.folder.invokeFactory('InstantMessage', 'im1')
-        #self.failUnless('im1' in self.folder.objectIds())
+
+    def testInstantMessageInterface(self):
+        im = self.portal.im1
+        self.failUnless(IInstantMessage.providedBy(im))
 
 def test_suite():
     from unittest import TestSuite, makeSuite
