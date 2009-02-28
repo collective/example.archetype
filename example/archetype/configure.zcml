@@ -15,7 +15,7 @@
 
   <genericsetup:registerProfile
       name="default"
-      title="Example Archetype content (InstantMessage)"
+      title="Example Archetype content - InstantMessage"
       directory="profiles/default"
       description="Extension profile for Example AT - InstantMessage"
       provides="Products.GenericSetup.interfaces.EXTENSION"

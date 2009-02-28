@@ -19,18 +19,9 @@ class TestInstantiation(InstantMessageTestCase):
 
     def testCreateInstantMessage(self):
         # Adding an InstantMessage anywhere - can only be done by a Manager or Portal Owner
-        #self.setRoles(['Manager'])
-        #self.loginAsPortalOwner()
-
-        # Login as a manager and create
-        # an item which is initially private page to play around with
-        self.loginAsPortalOwner()
-        self.portal.invokeFactory("Document", "doc")
+        self.setRoles(['Manager'])
         self.portal.invokeFactory('InstantMessage', 'im1')
-
-
-        #self.portal.invokeFactory('InstantMessage', 'im1')
-        #self.failUnless('im1' in self.portal.objectIds())
+        self.failUnless('im1' in self.portal.objectIds())
         #self.folder.invokeFactory('InstantMessage', 'im1')
         #self.failUnless('im1' in self.folder.objectIds())
 
