@@ -6,11 +6,10 @@ from Products.Archetypes.atapi import process_types, listTypes
 from Products.CMFCore import utils
 
 # Product imports
-from config import PROJECTNAME
+import config
+
 # Import the content types modules
 from content import *
-# Import the content types permissions
-from permissions import ADD_CONTENT_PERMISSIONS
 
 # Define a message factory for when this product is internationalised.
 # This will be imported with the special name "_" in most modules. Strings
@@ -23,15 +22,15 @@ messageFactory = MessageFactory('example.archetype')
 def initialize(context):
     
     content_types, constructors, ftis = process_types(
-             listTypes(PROJECTNAME), 
-             PROJECTNAME)
+             listTypes(config.PROJECTNAME), 
+             config.PROJECTNAME)
 
     allTypes = zip(content_types, constructors)
     for atype, constructor in allTypes:
-        kind = "%s: %s" % (PROJECTNAME, atype.portal_type)
+        kind = "%s: %s" % (config.PROJECTNAME, atype.portal_type)
         utils.ContentInit(kind,            
                           content_types      = (atype,),
-                          permission         = ADD_CONTENT_PERMISSIONS[atype.portal_type],
+                          permission         = config.ADD_CONTENT_PERMISSIONS[atype.portal_type],
                           extra_constructors = (constructor,),            
                           fti                = ftis,
                           ).initialize(context)
