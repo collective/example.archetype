@@ -4,20 +4,23 @@ from zope.interface import implements
 # CMF imports
 from Products.CMFCore import permissions
 
-# Archetypes imports
+# Archetypes & ATCT imports
 from Products.Archetypes import atapi
+from Products.ATContentTypes.content import base
+from Products.ATContentTypes.content import schemata
 
 # Product imports
-from example.archetype.config import PROJECTNAME
-from example.archetype.config import MESSAGE_PRIORITIES
+#from example.archetype.config import PROJECTNAME
+#from example.archetype.config import MESSAGE_PRIORITIES
+from example.archetype import config
 from example.archetype.interfaces import IInstantMessage
 
 
 # Schema definition
-schema = atapi.BaseSchema.copy() +  atapi.Schema((
+schema = schemata.ATContentTypeSchema.copy() + atapi.Schema((
 
   atapi.StringField('priority',
-              vocabulary = MESSAGE_PRIORITIES,
+              vocabulary = config.MESSAGE_PRIORITIES,
               default = 'normal',
               widget = atapi.SelectionWidget(label = 'Priority'),
              ),
@@ -35,16 +38,16 @@ schema = atapi.BaseSchema.copy() +  atapi.Schema((
 ))
 
 
-class InstantMessage(atapi.BaseContent):
+class InstantMessage(base.ATCTContent):
     """An Archetype for an InstantMessage application"""
 
     implements(IInstantMessage)
 
     schema = schema
 
-    portal_type = meta_type = 'InstantMessage'
+    portal_type = 'InstantMessage'
     
     _at_rename_after_creation = True
     
 # Content type registration for the Archetypes machinery
-atapi.registerType(InstantMessage, PROJECTNAME)
+atapi.registerType(InstantMessage, config.PROJECTNAME)
