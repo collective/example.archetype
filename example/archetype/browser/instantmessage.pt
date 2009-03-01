@@ -4,7 +4,7 @@
 
 <div metal:fill-slot="main"
      tal:define="priority here/getPriority;
-                 priority_color python:test(priority == 'high', 'red', priority == 'low', 'green', '')" >
+                 priority_color python:(priority == 'high' and 'red') or (priority == 'low' and 'green') or ''" >
 
         <h1 tal:content="context/Title" 
             tal:attributes="style string:color:$priority_color" >
