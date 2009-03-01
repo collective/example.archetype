@@ -14,7 +14,7 @@ from Products.ATContentTypes.content import schemata
 #from example.archetype.config import MESSAGE_PRIORITIES
 from example.archetype import config
 from example.archetype.interfaces import IInstantMessage
-
+from example.archetype import exampleMessageFactory as _
 
 # Schema definition
 schema = schemata.ATContentTypeSchema.copy() + atapi.Schema((
@@ -22,7 +22,7 @@ schema = schemata.ATContentTypeSchema.copy() + atapi.Schema((
   atapi.StringField('priority',
               vocabulary = config.MESSAGE_PRIORITIES,
               default = 'normal',
-              widget = atapi.SelectionWidget(label = 'Priority'),
+              widget = atapi.SelectionWidget(label = _(u'Priority')),
              ),
 
   atapi.TextField('body',
@@ -32,7 +32,7 @@ schema = schemata.ATContentTypeSchema.copy() + atapi.Schema((
                                        'text/structured',
                                        'text/html',),
             default_output_type = 'text/x-html-safe',
-            widget = atapi.RichWidget(label = 'Message Body'),
+            widget = atapi.RichWidget(label = _(u'Message Body')),
            ),
 
 ))
@@ -47,7 +47,7 @@ class InstantMessage(base.ATCTContent):
 
     portal_type = 'InstantMessage'
     
-    _at_rename_after_creation = True
+    #_at_rename_after_creation = True
     
 # Content type registration for the Archetypes machinery
 atapi.registerType(InstantMessage, config.PROJECTNAME)

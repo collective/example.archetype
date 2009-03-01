@@ -1,22 +1,25 @@
 """Main product initializer
 """
 
-# Archetypes & CMF imports
-from Products.Archetypes.atapi import process_types, listTypes
-from Products.CMFCore import utils
-
-# Product imports
-import config
-
-# Import the content types modules
-from content import *
 
 # Define a message factory for when this product is internationalised.
 # This will be imported with the special name "_" in most modules. Strings
 # like _(u"message") will then be extracted by i18n tools for translation.
 
 from zope.i18nmessageid import MessageFactory
-messageFactory = MessageFactory('example.archetype')
+exampleMessageFactory = MessageFactory('example.archetype')
+
+# Archetypes & CMF imports
+from Products.Archetypes.atapi import process_types
+from Products.Archetypes.atapi import listTypes
+from Products.CMFCore import utils
+
+# Product imports
+import config
+
+# Import the content types modules
+from content import message
+
 
 
 def initialize(context):
