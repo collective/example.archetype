@@ -3,7 +3,8 @@ About this product
 
 An example package that demonstrates how to develop an Archetypes-based content type for Plone 3.
   
-See the Archetypes Developer Manual on Plone.org (http://plone.org/documentation/manual/archetypes-developer-manual) for explanation of the code.
+See the Archetypes Developer Manual on Plone.org (http://plone.org/documentation/manual/archetypes-developer-manual) 
+for explanation of the code.
     
 How to use ?
 ============

@@ -10,8 +10,6 @@ from Products.ATContentTypes.content import base
 from Products.ATContentTypes.content import schemata
 
 # Product imports
-#from example.archetype.config import PROJECTNAME
-#from example.archetype.config import MESSAGE_PRIORITIES
 from example.archetype import config
 from example.archetype.interfaces import IInstantMessage
 from example.archetype import exampleMessageFactory as _
@@ -46,8 +44,6 @@ class InstantMessage(base.ATCTContent):
     schema = schema
 
     portal_type = 'InstantMessage'
-    
-    #_at_rename_after_creation = True
     
 # Content type registration for the Archetypes machinery
 atapi.registerType(InstantMessage, config.PROJECTNAME)
