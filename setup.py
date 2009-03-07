@@ -1,11 +1,11 @@
 from setuptools import setup, find_packages
 
-version = '0.1'
+version = '1.0'
 
 setup(name='example.archetype',
       version=version,
-      description="",
-      long_description="""\
+      description="An example Archetypes-based product.",
+      long_description="""An example product package for learning how to develop an Archetypes-based content type for Plone 3.
 """,
       # Get more strings from http://www.python.org/pypi?%3Aaction=list_classifiers
       classifiers=[
@@ -15,10 +15,10 @@ setup(name='example.archetype',
         "Programming Language :: Python",
         "Topic :: Software Development :: Libraries :: Python Modules",
         ],
-      keywords='',
-      author='',
-      author_email='',
-      url='',
+      keywords='zope archetypes plone',
+      author='Kamon Ayeva',
+      author_email='kamon ayeva at gmail com',
+      url='http://plone.org/products/example.archetype',
       license='GPL',
       packages=find_packages(exclude=['ez_setup']),
       namespace_packages=['example'],
