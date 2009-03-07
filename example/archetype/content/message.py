@@ -42,8 +42,6 @@ class InstantMessage(base.ATCTContent):
     implements(IInstantMessage)
 
     schema = schema
-
-    portal_type = 'InstantMessage'
     
 # Content type registration for the Archetypes machinery
 atapi.registerType(InstantMessage, config.PROJECTNAME)
